@@ -7,8 +7,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * 상품 클래스
- *
+ * 과제
+ * 회원 관련 VO
  */
 @AllArgsConstructor
 @NoArgsConstructor

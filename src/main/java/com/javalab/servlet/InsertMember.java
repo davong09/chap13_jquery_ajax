@@ -13,9 +13,8 @@ import com.google.gson.Gson;
 import com.javalab.vo.Member2VO;
 
 /**
- * 상품등록 처리 서블릿 - 클라이언트에서 JSON Type 문자열 형태로 값을 받음 
- * - 구글의 Gson 라이브러리를 통해서 JSON Type
- * 문자열을 자바 객체로 매핑 (구글 gson 라이브러리 import해야 함.)
+ * 과제
+ * 회원등록 처리 서블릿 - 클라이언트에서 JSON Type 문자열 형태로 값을 받음 
  */
 
 @WebServlet("/insertMember")
