@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+	<style>
+		body{
+			color: black
+		}
+		.yellow{
+			background-color: yellow;
+		}
+		.skyblue{
+			background-color: skyblue;
+		}
+	</style>
+	
+  	<!-- jQuery 라이브러리 import -->
+	<script src="../js/jquery-3.7.1.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			$('#btnImg1').on('click', function(){
+				$("#divimg1").html("<img src='image/dog.jpg' alt='dog image'>");
+			});
+			
+			$('#btnImg2').on('click', function(){
+				$('#divimg2').html("<img src='image/ai.png' alt='ai image'>");
+			});
+		});
+	</script>
+<body>
+	<input type="button" id="btnImg1" value="이미지 추가하기(divimg1)" />
+	<div id="divimg1"></div>
+
+	<input type="button" id="btnImg2" value="이미지 추가하기(divimg2)" />
+	<div id="divimg2"></div>
+</body>
+</html>

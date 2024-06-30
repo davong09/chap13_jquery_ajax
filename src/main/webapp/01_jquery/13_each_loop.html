@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+	<style>
+		
+	</style>
+	
+  	<!-- jQuery 라이브러리 import -->
+	<script src="../js/jquery-3.7.1.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			$('#inputForm').on('submit', function(event){
+				// 폼의 서브밋 방지
+				event.preventDefault();
+				
+				let id = $('#id').val();	// val()함수 : id 속성이 id인 요소의 값 추출
+				console.log('id : ', id);
+				
+				//val(id) : id변수의 값을 왼쪽의 전택자에 vaule 속성의 값으로 주겠다.(세팅)
+				$('#t_output').val(id);
+				
+				$('#result').html("<h2 style='color: red;'>" + id + "</h2>");
+			})
+		});
+	</script>
+<body>
+	<form id="inputForm">
+		<input type="text" id="id" placeholder="전달할 값을 입력하세요." >
+		<input type="submit" value="전송" id="btn">
+	</form>
+	<br>
+	<div>
+		결과:<br>
+		<input type="text" id="t_output" readonly>
+	</div>
+	<div id="result"></div>
+</body>
+</html>

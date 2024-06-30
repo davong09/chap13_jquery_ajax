@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML() 함수</title>
+  
+  	<!-- jQuery 라이브러리 import -->
+	<script src="../js/jquery-3.7.1.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+			// html()함수는 해당 요소의 태그들을 포함해서 모든 문자열을 갖고 온다.
+			var htmlValue = $('#example').html();
+			
+			// 결과 : <p>2021년 대한민국 신생아 수는 <b>249,031</b> 명이다.</p>
+			console.log(htmlValue); 
+			
+			// html()함수는 HTML 태그를 포함하여 내용을 설정
+			$('#example2').html(htmlValue);
+		});
+	</script>
+	
+</head>
+<body>
+	<div id="example">
+		<p>2021년 대한민국 신생아 수는 <b>249,031</b> 명이다.</p>
+	</div>
+	<div id="example2">
+		
+	</div>
+</body>
+</html>

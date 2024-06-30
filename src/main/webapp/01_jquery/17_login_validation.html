@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+	<style>
+		#divError{
+			color: red;
+		}
+	</style>
+	
+  	<!-- jQuery 라이브러리 import -->
+  	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+
+			// 비밀번호 확인 체크이벤트 핸들러 설정
+			// input event : 값이 변할때 발생하는 이벤트로 change이벤트와는 차이가 있다.
+			// change event 는 값을 변경하고 포커스를 잃게되면 발생한다.
+			// input event 는 값이 변경될 때마다 즉시 체크한다.
+			$('#pwdConfirm').on('input', function(){
+				let pwd = $('#pwd').val(); // pwd값 추출
+				let pwdConfirm = $(this).val();	// pwd confirm 값 추출
+				if(pwd !==pwdConfirm){
+					$('#divError').html('암호가 일치하지 않습니다.');
+				}else{
+					$('#divError').html('');
+				}
+			});
+		
+			// 전송 버튼 클릭 이벤트 핸들러
+			$('#btnSubmit').on('click', function(event){
+				event.preventDefault();
+				
+				let id = $('#id').val();
+				let pwd = $('#pwd').val();
+				let pwdConfirm = $('#pwdConfirm').val();
+				
+				if(id === ''){
+					$('#id').focus();
+					$('#divError').text('id를 입력하세요.');
+					$('#divError').css('color', 'red');
+					return false;
+				}
+				if(pwd === ''){
+					$('#pwd').focus();
+					$('#divError').text('비밀번호를 입력하세요.');
+					$('#divError').css('color', 'red');
+					return false;
+				}
+				if(pwd !== pwdConfirm){
+					$('#pwdConfirm').focus();
+					$('#divError').text('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+					$('#divError').css('color', 'red');
+					return false;
+				}
+				// 검증완료
+				$("#loginForm").submit();
+				
+			});
+		
+		});
+	</script>
+<body>
+	<form id="loginForm" action="https://www.naver.com">
+		id : <input type="text" id="id" name="id"><br>
+		pwd : <input type="password" id="pwd" name="pwd"><br>
+		pwd confirm : <input type="password" id="pwdConfirm" ><br>
+		<!-- <button type="submit" id="btnSubmit">전송</button> -->
+		<input type="submit" id="btnSubmit">전송</button>
+	</form>
+	<div id="divError"></div>
+</body>
+</html>

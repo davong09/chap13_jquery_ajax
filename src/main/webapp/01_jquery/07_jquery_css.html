@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style>
+		p:hover{
+			
+		}
+	</style>
+  	<!-- jQuery 라이브러리 import -->
+	<script src="../js/jquery-3.7.1.js"></script>
+	<script>
+		// [전역함수]
+		$(document).ready(function(){
+			// jquery event 핸들러 설정, event : 이벤트가 발생한 요소의 모든 정보
+			/*
+			// 선택자.click() 함수 : 해당 요소의 클릭(click) 이벤트에 대한 핸들링(처리)
+			// click()함수의 단점은 동적으로 생성되는 요소에게는 이벤트 핸들러 부착 불가
+			$('p').click(function(event){
+				console.log('p 태그 요소 클릭됨 ', event);
+				$(this).css("color", "red"); // 이벤트가 발생 요소에 css 적용
+			});
+			*/
+			
+			/*
+			  on() 함수 : 다양한 이벤트 핸들러를 부착할 수 있다. click, submit, mouseover  등등
+			  - on함수의 장점은 동적으로 생성되는 요소에 이벤트 핸들러를 부착할 수 있다.
+			  이벤 버블링 : 자식에서 발생된 이벤트가 전파되어 상위의 부모 요소로 전달되는것.
+			  - 자식에서 발생한 이벤트를 부모가 잡아 줘야 한다.안그러면 최상단 body거쳐서 html까지 올라감. 
+			  이벤트 위임 : 부모에게 on함수를 통해서 자식에게서 발생한 이벤트를 잡을 수 있도록 위임한다. 
+			*/
+			// body 태그 소속 자식들 중에서 p태그에 click이벤트가 발생하면 부모가 잡겠다.
+			// 동적으로 생성된 자식에게도 부모에게 설정해놓은 이벤트 핸들러가 적용된다.
+			$('body').on('click', 'p', function(event){
+				console.log('p 태그 요소 클릭됨 ', event);
+				$(this).css("color", "red"); // 이벤트가 발생 요소에 css 적용
+			});
+			
+			// #문단추가 요소에 이벤트 핸들러(처리기) 설정
+			$('#문단추가').click(function(){
+				$('body').append('<p>동적으로 생성된 문단, 나를 클릭하면 색깔이 변한다</p>');
+			})
+
+		});	// end ready
+
+	</script>
+</head>
+<body>
+	<h2>click event 'on' 함수</h2>
+	
+	<p>1.나를 클릭하면 색깔이 변한다</p>
+	<p>2.나를 클릭해도 색깔이 변한다</p>
+	
+	<button id="문단추가">새로운 문단 추가</button>
+</body>
+</html>

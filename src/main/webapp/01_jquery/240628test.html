@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Car Data 조회</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+	<h1>Car Data 조회</h1>
+
+	<h2>모든 차량 정보</h2>
+	<table id="allCarInfo">
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>Driver</th>
+				<th>Car</th>
+				<th>Mileage</th>
+				<th>Create At</th>
+				<th>End At</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+
+	<h2>운전자가 이미주인 차량 주행거리 총합</h2>
+	<p id="totalMileage"></p>
+
+	<h2>K5 차량 조회</h2>
+	<table id="k5Cars">
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>Driver</th>
+				<th>Car</th>
+				<th>Mileage</th>
+				<th>Create At</th>
+				<th>End At</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+
+	<h2>이미주 운전자가 운행한 날짜</h2>
+	<ul id="mijuDriveDates"></ul>
+
+	<script>
+        $(document).ready(function() {
+            const carData = [
+                { no: 1, driver: '이승호', car: 'K5', mileage: '30', createAt: '2022-03-24 09:30:21', endAt: '2022-03-24 10:30:55' },
+                { no: 2, driver: '이미주', car: 'K7', mileage: '10', createAt: '2022-03-21 10:55:12', endAt: '2022-03-21 11:10:12' },
+                { no: 3, driver: '홍범도', car: 'K9', mileage: '5', createAt: '2022-03-25 11:20:00', endAt: '2022-03-25 11:30:12' },
+                { no: 4, driver: '이미주', car: 'K5', mileage: '17', createAt: '2022-03-24 12:00:30', endAt: '2022-03-24 12:50:00' }
+            ];
+
+            carData.forEach(car => {
+                const row = `<tr><td>${car.no}</td><td>${car.driver}</td><td>${car.car}</td><td>${car.mileage}</td><td>${car.createAt}</td><td>${car.endAt}</td></tr>`;
+                $('#allCarInfo tbody').append(row);
+                if (car.driver === '이미주') {
+                    $('#mijuDriveDates').append(`<li>${car.createAt.split(' ')[0]}</li>`);
+                }
+                if (car.car === 'K5') {
+                    $('#k5Cars tbody').append(row);
+                }
+            });
+
+            const totalMileage = carData.filter(car => car.driver === '이미주').reduce((sum, car) => sum + parseInt(car.mileage), 0);
+            $('#totalMileage').text(totalMileage + ' km');
+        });
+    </script>
+</body>
+</html>

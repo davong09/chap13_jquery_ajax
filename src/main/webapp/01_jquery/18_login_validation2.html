@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#loginForm').on('submit', function(event) {
+                event.preventDefault(); // Prevent the form from submitting via the browser
+                let isValid = true;
+
+                // Clear previous error messages
+                $('.error').text('');
+
+                // Validate userId
+                const userId = $('#userId').val().trim();
+                if (userId === '') {
+                    $('#userIdError').text('User ID is required');
+                    isValid = false;
+                }
+
+                // Validate password
+                const password = $('#password').val().trim();
+                if (password === '') {
+                    $('#passwordError').text('Password is required');
+                    isValid = false;
+                }
+
+                // If validation passed, submit the form
+                if (isValid) {
+                    this.submit();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>Login Page</h2>
+    <form id="loginForm" action="login" method="post">
+        <div>
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId" name="userId">
+            <span id="userIdError" class="error" style="color:red"></span>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <span id="passwordError" class="error" style="color:red"></span>
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</body>
+</html>

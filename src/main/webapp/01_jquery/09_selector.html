@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+	<style>
+		body{
+			color: black
+		}
+		.yellow{
+			background-color: yellow;
+		}
+		.skyblue{
+			background-color: skyblue;
+		}
+	</style>
+	
+  	<!-- jQuery 라이브러리 import -->
+	<script src="../js/jquery-3.7.1.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			// 빈칸 자손 선택자
+			// ul의 자손중에서 li의 자손중에서 p인 요소만 yellow 클래스 적용
+			$('ul li p').addClass('yellow');
+			
+			// > 직계 자식 선택자(손자는 해당 안됨)
+			$('ul > li > p').addClass('skyblue');
+			
+			
+		});
+	</script>
+<body>
+	<ul>
+		<li>
+			<p>1. 이 문장은 태그 선택자 ul li p 그리고 ul > li > p 둘다 적용됨.</p>
+			<div>
+				<p>2. 이 문장은 태그 선택자 ul li p 적용대상, ul > li > p 대상 아님</p>
+			</div>
+		</li>
+		<li>
+			<p>3. 이 문장은 태그 선택자 ul li p 적용대상 ul > li > p 적용대상.</p>
+			<div>
+				<p>4. 이 문장은 태그 선택자 ul li p 적용대상, ul > li > p 대상 아님</p>
+			</div>
+		</li>
+		<p>5. 이 문장은 ul > p 아무 적용대상 아님!</p>
+	</ul>
+</body>
+</html>

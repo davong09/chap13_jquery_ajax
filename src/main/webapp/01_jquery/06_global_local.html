@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style>
+		.bgcss{
+			background-color: Yellow;
+		}
+		.redcss{
+			background-color: red;
+		}
+	</style>
+  	<!-- jQuery 라이브러리 import -->
+	<script src="../js/jquery-3.7.1.js"></script>
+	<script>
+		// [전역함수]
+		$(document).ready(function(){
+			// class 속성이 bg인 요소에 문서가 모두 로딩되고 난후에 즉시 적용된다.
+			$('.bg').addClass('bgcss');	// bgcss라는 스타일시트를 적용한다.
+			
+			// [jQuery 이벤트 핸들러 부착 방식]
+			// 문서의 로딩과 동시에 실행되지 않고 선택자에 이벤트가 발생하는 그 시점에 호출되어서
+			// 내용부에 구현해놓은 스타일 시트가 적용된다.
+			// $(this) : 이벤트가 발생한 해당 요소를 가리킨다. <div id ="hw">
+			$('#hw').click(function(){
+				$(this).addClass('redcss'); // 빨간색 배경이 적용된다.
+			});
+			
+		});	// end ready
+		//[전역함수]
+		// ready() 함수 바깥에 선언해야 한다.
+		// 만약 ready()함수 안에 선언하면 ready()함수의 지역함수가 되어
+		// html body 부분에서 호출할 수 없게 된다.
+		function fn_alert(){
+			alert('전역함수 fn_alert 호출됨');
+		}
+	</script>
+</head>
+<body>
+	<div class="bg">
+		1. 문서 로딩과 동시에 bgcss 적용
+	</div>
+	<div id ="hw">
+		2. 나를 클릭하세요.
+	</div>
+	<div onclick="fn_alert()">
+		3. 고전적인 방식으로 자바스크립트 함수 호출
+	</div>
+</body>
+</html>

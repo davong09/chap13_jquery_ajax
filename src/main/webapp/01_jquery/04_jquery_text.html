@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<!-- jQuery 라이브러리 import -->
+	<!-- jQuery 라이브러리를 프로젝트에 직접 import하는 방식 -->	
+	<script src="../js/jquery-3.7.1.js"></script>
+	
+	<!-- CDN 방식 -->
+	<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" > 
+	</script> -->
+	
+	<script type="text/javascript">
+
+		// [방법.1]
+		$(document).ready(function(){
+			// text()함수는 화면에 렌더링되어서 보여지는 내용을 갖고온다.
+			let textValue = $("#example").text();
+			console.log(textValue);
+			// text()함수로 값을 세팅하면 html tag가 텍스트 그래도 출력된다.
+			$("#example2").text("<h2>Hi</h2>");
+		});
+	</script>
+</head>
+<body>
+	<h3>jQuery text 함수</h3>
+	<div id="example">
+		<p>2021년 대학민국의 신생아 수는 <b>249,031</b>명이다.</p>
+	</div>	
+	<div id="example2">
+	
+	</div>
+</body>
+</html>

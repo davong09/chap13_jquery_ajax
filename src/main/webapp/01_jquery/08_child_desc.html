@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+	<style>
+		body{
+			color: black
+		}
+		.ycss{
+			background-color: yellow;
+		}
+		.scss{
+			background-color: skyblue;
+		}
+		.rcss{
+			background-color: red;
+		}
+	</style>
+	
+  	<!-- jQuery 라이브러리 import -->
+	<script src="../js/jquery-3.7.1.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			$('#servlet').on('click', function(){ // id=servlet 요소
+				$(this).addClass('ycss');
+			});
+			
+			$('#jquery').on('click', function(){	// id=jquery
+				$(this).addClass('scss');
+			});
+				
+			$('.rcssClass').on('click', function(){	// class=rcssClass
+				$(this).addClass('rcss');
+			});
+		});
+	</script>
+<body>
+	<h4>나의 관심사</h4>
+	<ul id="myFavorites">
+		<li class="rcssClass">JSP</li>
+		<li id="servlet">servlet</li>
+		<li class="rcssClass">Ajax</li>
+		<li id="jquery">jQuery</li>
+	</ul>
+</body>
+</html>

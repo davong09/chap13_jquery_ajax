@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+	<style>
+		
+	</style>
+	
+  	<!-- jQuery 라이브러리 import -->
+  	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			// $('input[type="checkbox"]') : 선택자인데 input 요소들 중에서 type 속성이 checkbox
+			$('input[type="checkbox"]').change(function(){
+				// is()함수로 해당 요소의 속성이 checked?
+				if($(this).is(":checked")){
+					alert("체크된 값 : " + $(this).val());
+				}
+			});
+			
+			$('#confirmButton').on('click', function(){
+				let selectedValues = []; // 체크박스의 체크된 값들
+				
+				// input 요소들중에서 type이 checkbox인 애들 중에서 체크된 요소들만 선택해서 반복
+				$("input[type='checkbox']:checked").each(function(){
+					selectedValues.push($(this).val());
+				});
+				// 배열.join(구분자) : 배열의 요소들을 구분자로 구분해서 문자열로 연결시켜서 하나의 문자열로 만듦.
+				$('#selectedValues').html("선택된 체크 박스의 값들 : " + selectedValues.join(","));
+			});
+		});
+	</script>
+<body>
+	<label for="java">JAVA</label>
+	<input type="checkbox" id="java" value="1">
+	<br>
+	<label for="jsp">JSP-View</label>
+	<input type="checkbox" id="jsp" value="2">
+	<br>
+	<label for="servlet">Servlet-Controller</label>
+	<input type="checkbox" id="servlet" value="3">
+	<br>
+	<label for="dao">DAO - Data Access Object</label>
+	<input type="checkbox" id="dao" value="4">
+	<br>
+	<label for="dto">Dto - VO - Data Transfer Object</label>
+	<input type="checkbox" id="dto" value="5">
+	<br>
+	<button id="confirmButton">확인</button>
+	<br>
+	<div id="selectedValues">체크된 값들 : </div>
+</body>
+</html>

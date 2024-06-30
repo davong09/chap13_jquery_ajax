@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+	<style>
+		body{
+			color: black
+		}
+		.yellow{
+			background-color: yellow;
+		}
+		.skyblue{
+			background-color: skyblue;
+		}
+	</style>
+	
+  	<!-- jQuery 라이브러리 import -->
+	<script src="../js/jquery-3.7.1.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			// : 가상선택자 사용 - 문서에서 맨 처음 나오는 li 선택, red색 적용 
+			//$('li:first').css('color', 'red');
+		
+			// 맨 마지막 li 요소에 파란색 적용
+			//$('li:last').css('color', 'blue');
+			
+			// li 형제(sibling)들 중에서 맨 윗자식 요소의 폰트를 bole로 설정
+			//$('li:first-child').css('font-weight', 'bold');
+			
+			// 맨 마지막 자식에 bold적용
+			//$('li:last-child').css('font-weight', 'bold');
+			
+			// 가상선택자로 nth-child(index), index 1부터 시작
+			//$('li:nth-child(3)').css('background-color', 'yellow');
+			
+			// 가상선택자 eq(index), index 0부터 시작
+			//$('li:eq(4)').css('background-color', 'lightblue');
+			
+			// li 중에서 짝수번째 li에게 스타일 적용
+			$('li:nth-child(even)').css('background-color', 'skyblue');
+
+			// li 중에서 홀수번째 li에게 스타일 적용
+			$('li:nth-child(odd)').css('background-color', 'yellow');
+			
+			
+			
+		});
+	</script>
+<body>
+	<ul>
+		<li>First item(첫번째 자식)</li>
+		<li>Second item(두번째 자식)</li>
+		<li>Third item(세번째 자식)</li>
+		<li>Fourth item(네번째 자식)</li>
+		<li>Fifth item(다섯번째 자식)</li>
+	</ul>
+</body>
+</html>

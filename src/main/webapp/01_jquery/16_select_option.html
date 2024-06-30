@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+	<style>
+		
+	</style>
+	
+  	<!-- jQuery 라이브러리 import -->
+  	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			// change event 핸들러 설정
+			$('#favorites').on('change', function(){
+				// 
+				let selectedText = $('#favorites option:selected').text();
+				let selectedValue = $(this).val(); // 드롭다운리스에서 선택된 항목의 값을 추출
+				
+				$('#selectedValues').text("선택된 항목의 값 : " + selectedValue);
+			});
+		});
+	</script>
+<body>
+	<label for="favorites">좋아하는 과목</label>
+	<select id="favorites">
+		<option selected value="1">JAVA</option>
+		<option  value="2">JSP-View</option>
+		<option  value="3">Servlet-Controller</option>
+		<option  value="4">DAO - Data Access Object</option>
+		<option  value="5">Dto - VO - Data Transfer Object</option>
+	</select>
+	<div id="selectedValues">선택된 항목들 :</div>
+</body>
+</html>

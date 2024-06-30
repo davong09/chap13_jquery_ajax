@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<!-- jQuery 라이브러리 import -->
+	<!-- jQuery 라이브러리를 프로젝트에 직접 import하는 방식 -->	
+	<script src="../js/jquery-3.7.1.js"></script>
+	
+	<!-- CDN 방식 -->
+	<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" > -->
+	</script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			let p = $("#abc");
+			p.css("color", "red");
+			
+			let lang = $("#lang").val();
+			console.log(lang);
+		});
+	</script>
+</head>
+<body>
+
+	<h3>jQuery Ready 함수</h3>
+	
+	<p id="abc">1. 나는 파란색 컬러가 적용되어 있다.</p>
+	
+	<input type="text" id="lang" name="lang" value="한글" />
+	
+
+
+</body>
+</html>
